@@ -489,7 +489,7 @@ else # $VERSION -eq 6
 fi
 
 NTP_INSTALLED=0
-if [ `$RPM -q ntp | $GREP -c "not installed"` -eq 1 -o `$RPM -q chrony | $GREP -c "not installed"` -eq 1 ]; then
+if [ `$RPM -q ntp | $GREP -c "not installed"` -eq 1 -a `$RPM -q chrony | $GREP -c "not installed"` -eq 1 ]; then
 	printfailure "2.2.1.1 - Ensure time synchronisation is in use"
 	$RPM -q ntp; $RPM -q chrony
 else
